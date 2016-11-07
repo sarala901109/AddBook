@@ -109,7 +109,7 @@ void SQLiteDataSource::fillContactFromRow(sqlite3_stmt *s, Contact& c)
     c.id = sqlite3_column_int(s, 0);
     c.firstName = reinterpret_cast<const char*>(sqlite3_column_text(s, 1));
     c.lastName = reinterpret_cast<const char*>(sqlite3_column_text(s, 2));
-    c.phoneNumber = reinterpret_cast<const char*>(sqlite3_column_text(s, 3));
+    c.phoneNumber = reinterpret_cast<const int*>(sqlite3_column_int(s, 3));
     c.address = reinterpret_cast<const char*>(sqlite3_column_text(s, 4));
     c.email = reinterpret_cast<const char*>(sqlite3_column_text(s, 5));
 }
@@ -186,7 +186,7 @@ ErrorInfo SQLiteDataSource::addContact(const Contact& c)
     //id is not bound, it is an auto-incrementing key field
     sqlite3_bind_text(insertStatement.get(), 1, c.firstName.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_text(insertStatement.get(), 2, c.lastName.c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_text(insertStatement.get(), 3, c.phoneNumber.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_int(insertStatement.get(), 3, c.phoneNumber.c_int());
     sqlite3_bind_text(insertStatement.get(), 4, c.address.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_text(insertStatement.get(), 5, c.email.c_str(), -1, SQLITE_STATIC);
 
@@ -216,7 +216,7 @@ ErrorInfo SQLiteDataSource::updateContact(Contact::ContactId id, const Contact& 
 
     sqlite3_bind_text(updateStatement.get(), 1, c.firstName.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_text(updateStatement.get(), 2, c.lastName.c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_text(updateStatement.get(), 3, c.phoneNumber.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_int(updateStatement.get(), 3, c.phoneNumber.c_int());
     sqlite3_bind_text(updateStatement.get(), 4, c.address.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_text(updateStatement.get(), 5, c.email.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_int(updateStatement.get(), 6, id);

@@ -45,7 +45,7 @@ void QtContactDetailView::displayContact(Contact::ContactId id)
         contactForm->firstNameField->setText(c.firstName.c_str());
         contactForm->lastNameField->setText(c.lastName.c_str());
         contactForm->addressField->setText(c.address.c_str());
-        contactForm->phoneNumberField->setText(c.phoneNumber.c_str());
+        contactForm->phoneNumberField->setText(c.phoneNumber.c_int());
         contactForm->emailField->setText(c.email.c_str());
     }
 }

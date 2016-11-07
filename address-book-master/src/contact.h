@@ -24,11 +24,11 @@ class Contact
         ContactId id;
         std::string firstName;
         std::string lastName;
-        std::string  phoneNumber;
+        std::int16_t  phoneNumber;
         std::string address;
         std::string email;
 
-        Contact():id(0), firstName(), lastName(), phoneNumber(), email(){ }
+        Contact():id(0), firstName(), lastName(), phoneNumber(0), email(){ }
         bool isValidToAdd() const;
         bool isEmpty() const;
 
