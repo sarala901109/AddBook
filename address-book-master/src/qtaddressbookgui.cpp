@@ -1,7 +1,7 @@
 
 
-#include <QMainWindow>
-#include <QPushButton>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QPushButton>
 #include <QHBoxLayout>
 #include <QFrame>
 
@@ -41,9 +41,26 @@ void QtAddressBookGUI::createWidgets()
     list = new QtContactList(dataSource);
     list->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
-    newContactButton = new QPushButton("New Contact");
-    editContactButton = new QPushButton("Edit");
-    deleteContactButton = new QPushButton("Delete");
+
+    newContactButton = new QPushButton(QIcon("C:/Users/student/Desktop/NOTE13.ico"),"New Contact");
+    newContactButton->setToolTip("To enter contact click here");
+    newContactButton->setStyleSheet("background-color: red; color:biue");
+    newContactButton->setGeometry(20,20,50,40);
+    newContactButton->show();
+
+    editContactButton = new QPushButton(QIcon("C:/Users/student/Desktop/NOTE14.ico"),"Edit");
+    editContactButton->setToolTip("To edit new contact click here");
+    editContactButton->setStyleSheet("background-color: green; color:red");
+    editContactButton->setGeometry(20,20,50,40);
+    editContactButton->show();
+
+    deleteContactButton = new QPushButton(QIcon("C:/Users/student/Desktop/RECYFULL.ico"),"Delete");
+    deleteContactButton->setToolTip("To delete contact click here");
+    deleteContactButton->setStyleSheet("background-color: blue; color:red");
+    deleteContactButton->setGeometry(20,20,50,40);
+    deleteContactButton->show();
+
+
 
     QHBoxLayout *buttonLayout = new QHBoxLayout();
     buttonLayout->addWidget(newContactButton);

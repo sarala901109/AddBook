@@ -24,7 +24,7 @@ class Contact
         ContactId id;
         std::string firstName;
         std::string lastName;
-        std::string phoneNumber;
+        std::string  phoneNumber;
         std::string address;
         std::string email;
 

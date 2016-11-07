@@ -34,7 +34,7 @@ void SQLiteDataSource::createTable()
                         "(id INTEGER PRIMARY KEY,"
                         "firstname TEXT NOT NULL,"
                         "lastname TEXT NOT NULL,"
-                        "phonenum TEXT NOT NULL,"
+                        "phonenum NUMBER(10) NOT NULL,"
                         "address TEXT,"
                         "email TEXT);";
 

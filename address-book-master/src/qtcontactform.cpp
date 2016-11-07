@@ -12,10 +12,10 @@ QtContactForm::QtContactForm(QWidget *parent) :
         phoneNumberField(new QLineEdit()),
         emailField(new QLineEdit())
 {
-    addRow("First Name", firstNameField);
-    addRow("Last Name", lastNameField);
+    addRow("First Name <font color='red'> * </font>", firstNameField);
+    addRow("Last Name <font color='red'> * </font>", lastNameField);
     addRow("Address", addressField);
-    addRow("Phone Number", phoneNumberField);
+    addRow("Phone Number <font color='red'> * </font>", phoneNumberField);
     addRow("Email", emailField);
 }
 
