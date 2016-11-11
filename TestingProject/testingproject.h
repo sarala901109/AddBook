@@ -1,0 +1,4 @@
+#ifndef TESTINGPROJECT_H
+#define TESTINGPROJECT_H
+
+#endif // TESTINGPROJECT_H
